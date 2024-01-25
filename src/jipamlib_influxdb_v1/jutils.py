@@ -45,7 +45,7 @@ def write_points(list, host, username, password, database, port=8086, attempts=5
                 if intento>attempts:
                     continuar=False
                 else:
-                    timelib.sleep(sleep_on_fail)
+                    time.sleep(sleep_on_fail)
             finally:
                 client.close()
     except Exception as e:
