@@ -11,7 +11,7 @@ def log(m, debug):
         logging.info(f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ; {m}")
 
 def task_time(startx):
-    return startx - time.time_ns()
+    return time.time_ns() - startx
 
 def write_points(list, host, username, password, database, port=8086, attempts=5, sleep_on_fail=5, batch_size=500, debug=1):
     startx=time.time_ns()

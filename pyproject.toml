@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "jipamlib_influxdb_v1"
-version = "0.0.5"
+version = "0.0.6"
 authors = [
   { name="jgajardo", email="jgajardo@gmail.com" },
 ]
