@@ -10,9 +10,12 @@ def log(m, debug):
     if debug:
         logging.info(f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ; {m}")
 
+def task_time(startx):
+    return startx - time.time_ns()
+
 def write_points(list, host, username, password, database, port=8086, attempts=5, sleep_on_fail=5, batch_size=500, debug=1):
+    startx=time.time_ns()
     try:
-        tiempo=0
         continuar=True
         intento=1
         while(continuar):
@@ -24,19 +27,19 @@ def write_points(list, host, username, password, database, port=8086, attempts=5
                     msgx={
                         'msg' : 'INSERT_OK',
                         'rows' : len(list),
-                        'time' : tiempo,
+                        'task_time_ns' : task_time(startx),
                         'attempt' : intento,
                         'host' : host,
                         'database' : database,
                         'time': time.time_ns()
                     }
                     log(msgx, debug)
-                return 0
+                continuar=False
             except Exception as err:
                 msgx={
                         'msg' : 'ATTEMPT_FAILED',
                         'rows' : len(list),
-                        'time' : tiempo,
+                        'task_time_ns' : task_time(startx),
                         'attempt' : intento,
                         'host' : host,
                         'database' : database,
@@ -54,7 +57,7 @@ def write_points(list, host, username, password, database, port=8086, attempts=5
                 msgx={
                         'msg' : e,
                         'rows' : len(list),
-                        'time' : tiempo,
+                        'task_time_ns' : task_time(startx),
                         'attempt' : intento,
                         'host' : host,
                         'database' : database,
@@ -65,7 +68,7 @@ def write_points(list, host, username, password, database, port=8086, attempts=5
     msgx={
                         'msg' : 'INSERT_FAILED',
                         'rows' : len(list),
-                        'time' : tiempo,
+                        'task_time_ns' : task_time(startx),
                         'attempt' : intento,
                         'host' : host,
                         'database' : database,
