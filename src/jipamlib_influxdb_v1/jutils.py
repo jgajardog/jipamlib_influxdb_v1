@@ -13,7 +13,7 @@ def log(m, debug):
 def task_time(startx):
     return time.time_ns() - startx
 
-def write_points(list, host, username, password, database, port=8086, attempts=5, sleep_on_fail=5, batch_size=500, debug=1):
+def write_points(list, host, username, password, database, port=8086, attempts=10, sleep_on_fail=2, batch_size=500, debug=1):
     startx=time.time_ns()
     try:
         continuar=True
