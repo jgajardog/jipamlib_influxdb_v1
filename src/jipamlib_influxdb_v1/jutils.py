@@ -22,23 +22,25 @@ def write_points(list, host, username, password, database, port=8086, attempts=5
                 client.write_points(list)
                 if debug:
                     msgx={
-                        'msg':'INSERT_OK',
-                        'rows':len(list),
-                        'time':tiempo,
-                        'attempt':intento,
-                        'host':host,
-                        'database':database,
+                        'msg' : 'INSERT_OK',
+                        'rows' : len(list),
+                        'time' : tiempo,
+                        'attempt' : intento,
+                        'host' : host,
+                        'database' : database,
+                        'time': time.time_ns()
                     }
                     log(msgx, debug)
                 return 0
             except Exception as err:
                 msgx={
-                        'msg':'ATTEMPT_FAILED',
-                        'rows':len(list),
-                        'time':tiempo,
-                        'attempt':intento,
-                        'host':host,
-                        'database':database,
+                        'msg' : 'ATTEMPT_FAILED',
+                        'rows' : len(list),
+                        'time' : tiempo,
+                        'attempt' : intento,
+                        'host' : host,
+                        'database' : database,
+                        'time': time.time_ns()
                 }
                 log(msgx, debug)
                 intento+=1
@@ -50,22 +52,25 @@ def write_points(list, host, username, password, database, port=8086, attempts=5
                 client.close()
     except Exception as e:
                 msgx={
-                        'msg':e,
-                        'rows':len(list),
-                        'time':tiempo,
-                        'attempt':intento,
-                        'host':host,
-                        'database':database,
+                        'msg' : e,
+                        'rows' : len(list),
+                        'time' : tiempo,
+                        'attempt' : intento,
+                        'host' : host,
+                        'database' : database,
+                        'time': time.time_ns()
                 }
-                log(msgx, debug)
+                log(msgx, 1)
 
     msgx={
-                        'msg':'INSERT_FAILED',
-                        'rows':len(list),
-                        'time':tiempo,
-                        'attempt':intento,
-                        'host':host,
-                        'database':database,
+                        'msg' : 'INSERT_FAILED',
+                        'rows' : len(list),
+                        'time' : tiempo,
+                        'attempt' : intento,
+                        'host' : host,
+                        'database' : database,
+                        'time': time.time_ns()
     }
+    log(msgx, 1)
     raise ValueError(msgx)
 
