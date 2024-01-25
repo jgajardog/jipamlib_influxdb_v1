@@ -23,7 +23,7 @@ def write_points(list, host, username, password, database, port=8086, attempts=1
                 insertx=time.time_ns()
                 client = InfluxDBClient(host=host, username=username, password=password, port=port)
                 client.switch_database(database)
-                client.write_points(list)
+                client.write_points(list, batch_size=batch_size)
                 if debug:
                     msgx={
                         'msg' : 'INSERT_OK',
