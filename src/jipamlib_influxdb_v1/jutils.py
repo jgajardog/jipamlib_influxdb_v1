@@ -25,9 +25,9 @@ def write_points(list, host, username, password, database, port=8086, attempts=5
                         'msg':'INSERT_OK',
                         'rows':len(list),
                         'time':tiempo,
-                        'attempt':intento
+                        'attempt':intento,
                         'host':host,
-                        'database':database
+                        'database':database,
                     }
                     log(msgx, debug)
                 return 0
@@ -36,9 +36,9 @@ def write_points(list, host, username, password, database, port=8086, attempts=5
                         'msg':'ATTEMPT_FAILED',
                         'rows':len(list),
                         'time':tiempo,
-                        'attempt':intento
+                        'attempt':intento,
                         'host':host,
-                        'database':database
+                        'database':database,
                 }
                 log(msgx, debug)
                 intento+=1
@@ -53,9 +53,9 @@ def write_points(list, host, username, password, database, port=8086, attempts=5
                         'msg':e,
                         'rows':len(list),
                         'time':tiempo,
-                        'attempt':intento
+                        'attempt':intento,
                         'host':host,
-                        'database':database
+                        'database':database,
                 }
                 log(msgx, debug)
 
@@ -63,9 +63,9 @@ def write_points(list, host, username, password, database, port=8086, attempts=5
                         'msg':'INSERT_FAILED',
                         'rows':len(list),
                         'time':tiempo,
-                        'attempt':intento
+                        'attempt':intento,
                         'host':host,
-                        'database':database
+                        'database':database,
     }
     raise ValueError(msgx)
 
