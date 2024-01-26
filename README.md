@@ -1,19 +1,22 @@
+
 # jipamlib_influxdb_v1  
-libreria para insertar a influxdb v1  
+librería para insertar a influxdb v1  
 
 ## install  
 ```
 pip3 install jipamlib_influxdb_v1  
 ```
-## parametros
+## parámetros
 
-- list: (mandatoria) lista de metricas en formato json  
-- host: (mandatoria) ip o hostname de influxdb  
-- username: (mandatoria) nombre de usuario  
-- password: (mandatoria) contraseña  
-- database: (mandatoria)  database a insertar
-- port: (opcional, default=8086) puerto destino
-- attempts: (opcional, default=10) reintentos maximos en caso de falla  
-- sleep_on_fail: (opcional, default=2) segundos a esperar antes de reintentar una insercion fallida
-- batch_size: (opcional, default=500) numero de metricas a insertar por lote  
-- debug: (opcional, default=1)  1 para modo verboso, 0 para imprimir solo errores
+- list: (requerida, string) lista de métricas en formato json  
+- host: (requerida, string) ip o hostname de influxdb  
+- username: (requerida, string) nombre de usuario  
+- password: (requerida, string) contraseña  
+- database: (requerida, string)  database a insertar
+- port: (opcional, int, default=8086) puerto destino
+- attempts: (opcional, int, default=10) reintentos máximos en caso de falla  
+- sleep_on_fail: (opcional, int , default=2) segundos a esperar antes de reintentar una inserción fallida
+- batch_size: (opcional, int, default=500) número de métricas a insertar por lote  
+- debug: (opcional, int, default=1)  1 para modo verboso, 0 para imprimir solo errores  
+
+
