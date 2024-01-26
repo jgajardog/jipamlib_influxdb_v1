@@ -21,7 +21,7 @@ pip3 install jipamlib_influxdb_v1
 
 ### Uso
 ```
-from influxdb import InfluxDBClient  
+from influxdb import influxdb InfluxDBClient  
 lista=[]
 lista.append( {
     "measurement" : "metrica_X",
