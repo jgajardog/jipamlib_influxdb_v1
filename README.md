@@ -2,11 +2,11 @@
 # jipamlib_influxdb_v1  
 librería para insertar a influxdb v1  
 
-## install  
+## Install  
 ```
 pip3 install jipamlib_influxdb_v1  
 ```
-## parámetros
+## Parámetros
 
 - list: (requerida, string) lista de métricas en formato json  
 - host: (requerida, string) ip o hostname de influxdb  
