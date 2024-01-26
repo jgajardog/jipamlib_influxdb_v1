@@ -4,7 +4,7 @@ librería para insertar a influxdb v1
 
 ## Install  
 ```
-pip3 install jipamlib_influxdb_v1  
+pip3 install influxdb jipamlib_influxdb_v1  
 ```
 ## Parámetros
 
@@ -21,7 +21,7 @@ pip3 install jipamlib_influxdb_v1
 
 ### Uso
 ```
-from influxdb import influxdb InfluxDBClient  
+from jipamlib_influxdb_v1 import jutils as influxlib
 lista=[]
 lista.append( {
     "measurement" : "metrica_X",
